@@ -1,3 +1,8 @@
+# Dunst config - this needs some adjustment but it matches
+# and has some nice touches.
+# TODO - finalise some of the styling and make the general fonts/icons smaller
+
+
 [global]
     frame_width = 4
     frame_color = "#4e4a43"

@@ -1,0 +1,16 @@
+# All that is required to make regolith feel like home:
+
+gtk-application-prefer-dark-theme=0
+
+# using alacritty but if gnome terminal is needed it has to be transparent
+gnome.terminal.use-transparent-background: true
+gnome.terminal.background-transparency-percent: 23
+
+# wallpapers and stretching them
+regolith.wallpaper.file: /usr/share/backgrounds/wallpaper4.jpg
+regolith.lockscreen.wallpaper.file: /usr/share/backgrounds/wallpaper4.jpg
+regolith.wallpaper.options: stretched
+regolith.lockscreen.wallpaper.options: stretched
+
+# the best regolith theme IMO, no adjustments and top bar
+regolith.look.path: /usr/share/regolith-look/gruvbox

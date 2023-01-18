@@ -1,0 +1,40 @@
+#+title:     Dotfiles Collection 2023
+#+author:    mrignall
+
+
+** Dotfiles
+
+This is my first attempt at storing my dotfiles and having some
+kind of synchronised approach to what I do. Constantly evolving
+exploration that is not covered here but getting there is:
+
+General Configuration:
+
+*** Alacritty
+
+I am not using a terminal outside of Emacs at the moment as I'm
+trying to fully engage with that but if a terminal is needed
+Alacritty seems to tick all the boxes.
+
+*** Dunst
+
+A recent addition to the setup, it was just hanging around for a
+while unconfigured but I recently made an effort to match it to the
+main Regolith theme I'm using (Gruvbox).
+
+*** Xresources (Regolith slight tweaks)
+
+I don't want to mess with the default configuration of Regolith
+too much in order to make my life easier when switching devices.
+The only must have is to have a personalised wallpaper and gnome terminal
+transparency (from before Alacritty)
+
+*** TODO Emacs
+
+I'm using Doom Emacs and it has been a wild ride and a really fun
+experience. I have a few different config files due to the trialling EXWM
+and GUIX. Once I've got a definitive set up I'll add to here.
+
+*** TODO GUIX/EXWM
+
+I'm really keen to understand declarative distros and GUIX Hom seems to tick a lot of boxes.
