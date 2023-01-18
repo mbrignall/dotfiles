@@ -1,40 +1,52 @@
-#+title:     Dotfiles Collection 2023
-#+author:    mrignall
+# Created 2023-01-18 Wed 23:15
+#+title: Dotfiles Collection 2023
+#+author: mbrignall
 
+* General Configuration
+
+This is my first attempt at storing my dotfiles and having some
+kind of synchronised approach to what I do. This is a constantly evolving
+exploration that is not always possible to cover here.
+
+I'm using [[https://regolith-desktop.com/][Regolith]] which is a custom i3 configuration on top of Ubuntu 22.04.
+It's a tiling window manager with great keyboard-driven workflows out of the box. I only have make a few minor tweaks and it's good to go.
+
+My main laptop is a Dell XPS 15 9510. 
 
 ** Dotfiles
 
-This is my first attempt at storing my dotfiles and having some
-kind of synchronised approach to what I do. Constantly evolving
-exploration that is not covered here but getting there is:
-
-General Configuration:
-
-*** Alacritty
+*** [[https://github.com/alacritty/alacritty][Alacritty]]
 
 I am not using a terminal outside of Emacs at the moment as I'm
 trying to fully engage with that but if a terminal is needed
-Alacritty seems to tick all the boxes.
+[[https://github.com/alacritty/alacritty][Alacritty]] seems to tick all the boxes.
 
-*** Dunst
+*** [[https://dunst-project.org/][Dunst]]
 
 A recent addition to the setup, it was just hanging around for a
 while unconfigured but I recently made an effort to match it to the
 main Regolith theme I'm using (Gruvbox).
 
-*** Xresources (Regolith slight tweaks)
+*** Xresources - for Regolith
 
 I don't want to mess with the default configuration of Regolith
 too much in order to make my life easier when switching devices.
 The only must have is to have a personalised wallpaper and gnome terminal
 transparency (from before Alacritty)
 
+*** .zshrc (ZSH with Oh-My-Zsh)
+
+I strongly feel this is left over from earlier iteration of my
+configuration that I no longer use - I just like to keep
+the files around just in case. I don't have a really complex config
+I just really like the way the Powerlevel10k theme looks. 
+
 *** TODO Emacs
 
-I'm using Doom Emacs and it has been a wild ride and a really fun
-experience. I have a few different config files due to the trialling EXWM
-and GUIX. Once I've got a definitive set up I'll add to here.
+I'm using [[https://github.com/doomemacs/doomemacs][Doom Emacs]] and it has been a wild ride and a really fun
+experience. I have a few config files due to the trialling of [[https://github.com/ch11ng/exwm][EXWM]]
+and [[https://guix.gnu.org/en/download/][GUIX]]. Once I've got a definitive set up I'll add to here.
 
 *** TODO GUIX/EXWM
 
-I'm really keen to understand declarative distros and GUIX Hom seems to tick a lot of boxes.
+I'm really keen to understand declarative distros and [[https://guix.gnu.org/en/blog/2022/keeping-ones-home-tidy/][GUIX Home]] seems to tick a lot of boxes.
