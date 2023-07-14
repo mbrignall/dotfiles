@@ -22,7 +22,7 @@
 
       boot.loader.systemd-boot.enable = true;
       boot.loader.efi.canTouchEfiVariables = true;
-      boot.loader.efi.efiSysMountPoint = "/boot/efi";
+      boot.loader.efi.efiSysMountPoint = "/boot";
       boot.kernelModules = [ "amdgpu" ];
       hardware.opengl.driSupport32Bit = true;
       hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
