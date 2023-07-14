@@ -81,10 +81,9 @@
       users.extraGroups.docker.members = [ "mbrignall" ];
       nixpkgs.config.allowUnfree = true;
       environment.systemPackages = with pkgs; [ ];
-      nixpkgs.overlays = [
-        (import (builtins.fetchTarball
-          "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz"))
-      ];
+
+      inputs.emacs-overlay.url = "github:nix-community/emacs-overlay";
+      nixpkgs.overlays = [ emacs-overlay.overlay ];
 
       fonts = {
         fonts = with pkgs; [
