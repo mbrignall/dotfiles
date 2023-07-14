@@ -3,8 +3,9 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.home-manager.url = "github:nix-community/home-manager";
+  inputs.emacs-overlay.url = "github:nix-community/emacs-overlay";
 
-  outputs = { self, nixpkgs, home-manager }: {
+  outputs = { self, nixpkgs, home-manager, emacs-overlay }: {
     nixosConfigurations = {
       mbrignixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -82,7 +83,6 @@
       nixpkgs.config.allowUnfree = true;
       environment.systemPackages = with pkgs; [ ];
 
-      inputs.emacs-overlay.url = "github:nix-community/emacs-overlay";
       nixpkgs.overlays = [ emacs-overlay.overlay ];
 
       fonts = {
