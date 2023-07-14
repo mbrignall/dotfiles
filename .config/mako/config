@@ -1,0 +1,23 @@
+font=FiraMono Nerd Font 15
+width=400
+height=200
+border-size=2
+max-history=3
+
+
+# Colors
+background-color=#1e1e1e98
+text-color=#cdd6f4
+border-color=#89b4fa
+progress-color=over #313244
+
+[urgency=low]
+default-timeout=100
+
+[urgency=normal]
+default-timeout=1000
+
+[urgency=high]
+border-color=#fab387
+text-color=#F28FAD
+default-timeout=10000

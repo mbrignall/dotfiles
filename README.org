@@ -1,0 +1,29 @@
+* My Nix Configuration
+
+This is a work-in-progress configuration for my NixOS setup.
+
+** Setup
+
+This configuration is managed with Nix flakes. To use this configuration:
+
+1. Enable flakes on your system if you haven't already done so:
+
+   #+BEGIN_SRC shell
+   nixos-rebuild switch --flake path/to/your/flake#yourSystemName
+   #+END_SRC
+
+   Replace /path/to/your/flake/ with the path to this directory and /yourSystemName/ with the name of your system configuration.
+
+2. Run the rebuild command:
+
+   #+BEGIN_SRC shell
+   nixos-rebuild switch --flake path/to/your/flake#yourSystemName
+   #+END_SRC
+
+** Status
+
+This is a work in progress. The configuration is not yet complete and may change significantly.
+
+** Feedback
+
+If you have any suggestions or feedback, please open an issue on the GitHub repository.
