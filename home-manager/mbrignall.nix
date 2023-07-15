@@ -10,8 +10,8 @@
       mbrignixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
-          ./hardware-configuration.nix
+          (import ./configuration.nix)
+          (import ./hardware-configuration.nix)
           home-manager.nixosModules.home-manager
           {
             home-manager.users.mbrignall = import ./home-manager/mbrignall.nix;
