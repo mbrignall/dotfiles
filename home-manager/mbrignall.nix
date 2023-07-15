@@ -13,9 +13,4 @@
     ".config".target = ".config";
   };
 
-  programs.emacs = {
-    enable = true;
-    doomPrivateDir = "./home-manager/doom.d";
-    package = emacs-overlay.packages.${system}.emacsGcc;
-  };
 }
