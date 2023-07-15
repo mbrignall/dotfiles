@@ -74,6 +74,7 @@
     exfat
     nixfmt
     nodejs
+    oh-my-zsh
     pkgs.openai
     pandoc
     pavucontrol
