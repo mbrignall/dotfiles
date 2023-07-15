@@ -20,10 +20,10 @@
   home.file.".config".source = ../.config;
 
   # Here's how you can set a shell option
-  programs.zsh.interactiveShellInit = ''
-    # Example shell option
-    setopt AUTO_CD
-  '';
+  # programs.zsh.interactiveShellInit = ''
+  #   # Example shell option
+  #   setopt AUTO_CD
+  # '';
 
   # Set packages
   home.packages = with pkgs; [
