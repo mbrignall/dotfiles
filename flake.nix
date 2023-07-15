@@ -12,6 +12,7 @@
         modules = [
           self.nixosModules.mbrignall
           home-manager.nixosModules.home-manager
+          (import /etc/nixos/hardware-configuration.nix)
           {
             home-manager.users.mbrignall = import ./home-manager/mbrignall.nix;
           }
