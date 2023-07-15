@@ -11,8 +11,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          builtins.readFile
-          "/etc/nixos/hardware-configuration.nix"
+          ./hardware-configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.users.mbrignall = import ./home-manager/mbrignall.nix;
