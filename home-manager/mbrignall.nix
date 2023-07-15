@@ -7,12 +7,12 @@
     homeDirectory = "/home/mbrignall";
   };
 
-  programs.zsh = {
-    enable = true;
-    ohMyZsh.enable = true;
-    ohMyZsh.theme = "powerlevel10k/powerlevel10k";
-    ohMyZsh.plugins = [ "git" "docker" "nix" ];
-  };
+  # programs.zsh = {
+  #   enable = true;
+  #   ohMyZsh.enable = true;
+  #   ohMyZsh.theme = "powerlevel10k/powerlevel10k";
+  #   ohMyZsh.plugins = [ "git" "docker" "nix" ];
+  # };
 
   # Home Manager allows you to manage user-specific files
   # Here's an example that creates a symbolic link from the file
