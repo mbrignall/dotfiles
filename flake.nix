@@ -12,9 +12,7 @@
         modules = [
           (import ./configuration.nix)
           home-manager.nixosModules.home-manager
-          {
-            home-manager.users.mbrignall = import ./home-manager/mbrignall.nix;
-          }
+          { home-manager.users.mbrignall = import ./home-manager/home.nix; }
         ];
       };
     };
