@@ -20,10 +20,10 @@
 
     file = {
       ".config/alacritty/alacritty.yml".source =
-        ../.config/alacritty/alacritty.yml;
+        .config/alacritty/alacritty.yml;
       # ".emacs.d/init.el".source = ../.config/emacs/init.el;
       # ".emacs.d/custom.el".source = ../.config/emacs/custom.el;
-      ".config/fuzzel/fuzzel.ini".source = ../.config/fuzzel/fuzzel.ini;
+      ".config/fuzzel/fuzzel.ini".source = .config/fuzzel/fuzzel.ini;
       # ".config/home-manager/home.nix".source = ../home-manager/home.nix;
       # ".config/mako/config".source = ../.config/mako/config;
       # ".config/hypr/hyprland.conf".source = ../.config/hypr/hyprland.conf;
