@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
-let p10kTheme = ./p10k.zsh;
+let p10kTheme = ./.config/.p10k.zsh;
 in {
 
   imports = [ ];
@@ -78,6 +78,9 @@ in {
 
     zsh = {
       enable = true;
+      initExtra = ''
+        [[ ! -f ${p10kTheme} ]] || source ${p10kTheme}
+      '';
       enableAutosuggestions = true;
       shellAliases = {
         g = "git";
@@ -86,18 +89,11 @@ in {
           "sudo nixos-rebuild switch --flake .#mbrignall && home-manager switch --flake .#mbrignall@mbrignall";
       };
 
-      plugins = with pkgs; [
-        {
-          file = "powerlevel10k.zsh-theme";
-          name = "powerlevel10k";
-          src = "${zsh-powerlevel10k}/share/zsh-powerlevel10k";
-        }
-        {
-          file = ".p10k.zsh";
-          name = "powerlevel10k-config";
-          src = .config/.p10k.zsh;
-        }
-      ];
+      plugins = with pkgs; [{
+        file = "powerlevel10k.zsh-theme";
+        name = "powerlevel10k";
+        src = "${zsh-powerlevel10k}/share/zsh-powerlevel10k";
+      }];
     };
   };
   services.emacs = {
