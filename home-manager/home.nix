@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
-
-{
+let p10kTheme = ./p10k.zsh;
+in {
 
   imports = [ ];
 
