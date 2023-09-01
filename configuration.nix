@@ -188,8 +188,6 @@
     xfce.thunar
     xfce.thunar-volman
     yarn
-    zsh
-    zsh-powerlevel10k
   ];
 
   ## Services
