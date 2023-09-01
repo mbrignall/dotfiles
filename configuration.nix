@@ -149,15 +149,7 @@
     pipenv
     plantuml
     powerstat
-    python39
-    python39Packages.black
-    python39Packages.isort
-    python39Packages.nose
-    python39Packages.pyflakes
-    python39Packages.pytest
-    python311Packages.grip
-    python311Packages.sqlalchemy
-    python311Packages.weasyprint
+    python3
     qemu
     ripgrep
     rnix-lsp
