@@ -83,7 +83,7 @@
         g = "git";
         gs = "git status";
         update =
-          "sudo nixos-rebuild switch --flake .#mbrignall && home-manager switch --flake .#mbrignall";
+          "sudo nixos-rebuild switch --flake .#mbrignall && home-manager switch --flake .#mbrignall@mbrignall";
       };
 
       plugins = with pkgs; [
