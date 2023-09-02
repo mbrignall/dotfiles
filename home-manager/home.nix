@@ -131,12 +131,6 @@ in {
       size = 18;
     };
 
-    gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-
     gtk3.extraCss = ''
       decoration, decoration:backdrop {box-shadow: none;}
 
@@ -146,10 +140,5 @@ in {
 
                            {border-radius: 0; font-family: FiraMono Nerd Font;}'';
 
-    gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
   };
 }
