@@ -12,7 +12,7 @@ This configuration is managed with Nix flakes. To use this configuration:
 
 - Run the rebuild command:
 
-   #+BEGIN_SRC shell
+   #+BEGIN_SRC bash
    sudo nixos-rebuild switch --flake path/to/your/flake#yourSystemName
    #+END_SRC
 
