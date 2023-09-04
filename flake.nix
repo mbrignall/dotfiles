@@ -23,7 +23,6 @@
       #   let pkgs = nixpkgs.legacyPackages.${system};
       #   in import ./shell.nix { inherit pkgs; }
       # );
-
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
@@ -45,6 +44,7 @@
           pkgs =
             nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs; };
+
           modules = [
             # > Our main home-manager configuration file <
             (import ./home-manager/home.nix)

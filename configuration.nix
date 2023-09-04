@@ -105,11 +105,9 @@
     ditaa
     docker
     docker-compose
-    editorconfig-core-c
     emptty
     eww-wayland
     exfat
-    font-awesome_5
     fuzzel
     gcc
     git
@@ -122,8 +120,7 @@
     gsettings-desktop-schemas
     gnumake
     gtk3
-    hugo
-    html-tidy
+    htop
     ispell
     jdk17
     jq
@@ -136,11 +133,6 @@
     imagemagick
     networkmanager-fortisslvpn
     nixfmt
-    nodejs
-    nodePackages.js-beautify
-    nodePackages.pyright
-    nodePackages.stylelint
-    nodePackages.vscode-langservers-extracted
     ntfs3g
     openjdk
     usermount
@@ -163,14 +155,12 @@
     tailscale
     terminus-nerdfont
     terraform
-    tree-sitter
     udisks
     unzip
     vulkan-loader
     vim
     virt-manager
     vlc
-    vscode-extensions.github.copilot
     waybar
     wayland
     wl-clipboard

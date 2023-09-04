@@ -1,11 +1,15 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixpkgs, ... }:
 let p10kTheme = ./.config/.p10k.zsh;
 in {
 
   imports = [ ];
 
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = (_: true);
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
+
   home = {
     username = "mbrignall";
     homeDirectory = "/home/mbrignall";
@@ -39,23 +43,37 @@ in {
       #packages
       bat
       bc
+      editorconfig-core-c
       nix-direnv
       fd
       grim
+      hugo
+      html-tidy
       inkscape-with-extensions
       sway-contrib.grimshot
-      htop
+      nix-direnv
+      nixfmt
+      nodePackages.prettier
+      nodejs
+      nodePackages.js-beautify
+      nodePackages.pyright
+      nodePackages.stylelint
+      nodePackages.vscode-langservers-extracted
       slurp
       swappy
+      tree-sitter
+      vscode-extensions.github.copilot
       zsh
       zsh-powerlevel10k
 
       #fonts
       fira-mono
+      exfat
+      font-awesome
+      font-awesome_5
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      font-awesome
       victor-mono
       (nerdfonts.override {
         fonts = [ "FiraCode" "FiraMono" "Hack" "DroidSansMono" "Meslo" ];
@@ -126,7 +144,7 @@ in {
     };
 
     cursorTheme = {
-      name = "Adwaita";
+      name = "Adwaita-Dark";
       package = pkgs.gnome.adwaita-icon-theme;
       size = 18;
     };
