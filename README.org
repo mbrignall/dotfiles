@@ -10,8 +10,8 @@ This configuration is managed with Nix flakes. To use this configuration:
 
    Replace /path/to/your/flake/ with the path to this directory and /yourSystemName/ with the name of your system configuration.
 
-- Run the rebuild command:
-
+*** Run the rebuild command:
+  
    #+BEGIN_SRC bash
    sudo nixos-rebuild switch --flake path/to/your/flake#yourSystemName
    #+END_SRC
