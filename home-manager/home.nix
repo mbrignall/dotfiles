@@ -25,17 +25,16 @@ in {
     file = {
       ".config/alacritty/alacritty.yml".source =
         .config/alacritty/alacritty.yml;
-      # ".emacs.d/init.el".source = ../.config/emacs/init.el;
-      # ".emacs.d/custom.el".source = ../.config/emacs/custom.el;
+      # ".emacs.d/init.el".source = .config/emacs/init.el;
+      # ".emacs.d/custom.el".source = .config/emacs/custom.el;
       ".config/fuzzel/fuzzel.ini".source = .config/fuzzel/fuzzel.ini;
-      # ".config/home-manager/home.nix".source = ../home-manager/home.nix;
-      # ".config/mako/config".source = ../.config/mako/config;
-      # ".config/hypr/hyprland.conf".source = ../.config/hypr/hyprland.conf;
-      # ".config/hypr/hyprpaper.conf".source = ../.config/hypr/hyprpaper.conf;
-      # ".config/sway/config".source = ../.config/sway/config;
-      # ".config/swaylock/config".source = ../.config/swaylock/config;
-      # ".config/waybar/config".source = ../.config/waybar/config;
-      # ".config/waybar/style.css".source = ../.config/waybar/style.css;
+      ".config/home-manager/home.nix".source = ../home-manager/home.nix;
+      ".config/mako/config".source = .config/mako/config;
+      ".config/hypr/hyprland.conf".source = .config/hypr/hyprland.conf;
+      # ".config/sway/config".source = .config/sway/config;
+      ".config/swaylock/config".source = .config/swaylock/config;
+      ".config/waybar/config".source = .config/waybar/config;
+      ".config/waybar/style.css".source = .config/waybar/style.css;
     };
 
     packages = with pkgs; [
@@ -43,6 +42,7 @@ in {
       #packages
       bat
       bc
+      ditaa
       editorconfig-core-c
       nix-direnv
       fd
@@ -50,15 +50,17 @@ in {
       hugo
       html-tidy
       inkscape-with-extensions
-      sway-contrib.grimshot
+      jq
       nix-direnv
       nixfmt
-      nodePackages.prettier
       nodejs
+      nodePackages.prettier
       nodePackages.js-beautify
       nodePackages.pyright
       nodePackages.stylelint
       nodePackages.vscode-langservers-extracted
+      shellcheck
+      shfmt
       slurp
       swappy
       tree-sitter
@@ -68,12 +70,13 @@ in {
 
       #fonts
       fira-mono
-      exfat
       font-awesome
       font-awesome_5
+      material-design-icons
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
+      terminus-nerdfont
       victor-mono
       (nerdfonts.override {
         fonts = [ "FiraCode" "FiraMono" "Hack" "DroidSansMono" "Meslo" ];

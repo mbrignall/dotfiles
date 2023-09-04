@@ -101,8 +101,6 @@
     cmake
     coreutils
     cups
-    direnv
-    ditaa
     docker
     docker-compose
     emptty
@@ -116,6 +114,7 @@
     google-chrome
     graphviz
     grim
+    sway-contrib.grimshot
     gvfs
     gsettings-desktop-schemas
     gnumake
@@ -123,7 +122,6 @@
     htop
     ispell
     jdk17
-    jq
     karlender
     libnotify
     libtool
@@ -132,10 +130,7 @@
     multimarkdown
     imagemagick
     networkmanager-fortisslvpn
-    nixfmt
-    ntfs3g
     openjdk
-    usermount
     pandoc
     pavucontrol
     pipenv
@@ -145,15 +140,13 @@
     qemu
     ripgrep
     rnix-lsp
-    shellcheck
-    shfmt
     slack
     slurp
     swayidle
     swaylock
+    swww
     syncthing
     tailscale
-    terminus-nerdfont
     terraform
     udisks
     unzip
@@ -161,7 +154,6 @@
     vim
     virt-manager
     vlc
-    waybar
     wayland
     wl-clipboard
     wdisplays
@@ -170,8 +162,6 @@
     xfce.thunar
     xfce.thunar-volman
     yarn
-    zsh
-    zsh-powerlevel10k
   ];
 
   ## Services
@@ -181,19 +171,18 @@
     xserver.enable = false;
     # Enable Flatpak
     flatpak.enable = true;
-  };
 
-  services.syncthing = {
-    enable = true;
-    user = "mbrignall";
-    dataDir = "/home/mbrignall/org/";
-    configDir = "/home/mbrignall/.config/syncthing";
+    syncthing = {
+      enable = true;
+      user = "mbrignall";
+      dataDir = "/home/mbrignall/org/";
+      configDir = "/home/mbrignall/.config/syncthing";
+    };
   };
 
   # Virtualisation
   virtualisation = {
     libvirtd.enable = true;
-    # Dconf/Edit GTK apps
     # Docker virtualisation
     docker.enable = true;
   };
@@ -209,14 +198,15 @@
   };
 
   programs = {
-    # Enable Sway.
+    # Dconf
     dconf.enable = true;
+    # Enable Sway.
     sway.enable = true;
     # Enable Hyprland
     hyprland.enable = true;
     # Enable ZSH
     zsh.enable = true;
-    # If you want to use waybar as your swaybar
+    # Enable Waybar
     waybar.enable = true;
   };
 
