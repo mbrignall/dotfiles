@@ -1,23 +1,19 @@
 * My Nix Configuration
 
-This is a work-in-progress configuration for my NixOS setup.
+[[https://nixos.org][https://img.shields.io/badge/NixOS-grey.svg?style=flat-square&logo=NixOS&logoColor=white]]
+
+This is a work-in-progress configuration for my NixOS and home-manager setup.
 
 ** Setup
 
 This configuration is managed with Nix flakes. To use this configuration:
 
-1. Enable flakes on your system if you haven't already done so:
-
-   #+BEGIN_SRC shell
-   nixos-rebuild switch --flake path/to/your/flake#yourSystemName
-   #+END_SRC
-
    Replace /path/to/your/flake/ with the path to this directory and /yourSystemName/ with the name of your system configuration.
 
-2. Run the rebuild command:
+- Run the rebuild command:
 
    #+BEGIN_SRC shell
-   nixos-rebuild switch --flake path/to/your/flake#yourSystemName
+   sudo nixos-rebuild switch --flake path/to/your/flake#yourSystemName
    #+END_SRC
 
 ** Status
