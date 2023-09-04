@@ -1,5 +1,26 @@
 # ~/.config/alacritty/alacritty.yml
 
 window:
-  opacity: 0.9
+  opacity: 0.8
+
+  
+# modus-vivendi (Dark theme)
+colors:
+  primary:
+    background: '#000000'
+    foreground: '#ffffff'
+    # Bright and dim foreground colors
+    dim_foreground: '#1e1e1e'
+    bright_foreground: '#ffffff'
+    # Normal colors
+    normal:
+      black:   '#000000'
+      red:     '#ff5f59'
+      green:   '#44bc44'
+      yellow:  '#d0bc00'
+      blue:    '#2fafff'
+      magenta: '#feacd0'
+      cyan:    '#00d3d0'
+      white:   '#ffffff'
+
 
