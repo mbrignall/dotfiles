@@ -29,7 +29,7 @@ window#waybar {
     padding: 0px 4px;
 }
 
-#backlight, #battery, #bluetooth, #clock, #idle_inhibitor, #network, #pulseaudio {
+#backlight, #battery, #bluetooth, #clock, #idle_inhibitor, #network, #pulseaudio, #hyprpicker {
     border-top: 2px solid #b877db;
 }
 

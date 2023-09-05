@@ -47,6 +47,7 @@ in {
       grim
       hugo
       html-tidy
+      hyprpicker
       inkscape-with-extensions
       jq
       nix-direnv

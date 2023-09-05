@@ -12,12 +12,13 @@
   "margin-bottom": 0,
 
   "modules-left": [
-    "sway/workspaces",
+    "wlr/workspaces",
     "sway/mode"
   ],
 
   "modules-center": [
-    "sway/window"
+    "sway/window",
+    "custom/hyprpicker"
   ],
 
   "modules-right": [
@@ -36,21 +37,19 @@
     "format": "  {}"
   },
 
-  "sway/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "1":"●",
-      "2":"●",
-      "3":"●",
-      "4":"●",
-      "5":"●",
-      "urgent":"!",
-      "focused":"●",
-      "default":"○"
-    }
-  },
+  "wlr/workspaces": {
+	"format": " {name}: {icon} ",
+	"format-icons": {
+		"1": "",
+		"2": "",
+		"3": "",
+		"4": "",
+		"5": "",
+		"active": "",
+		"default": ""
+	},
+	"sort-by-number": true
+   },  
 
   "clock": {
     "format": " {: <span color=\"#27d797\"> </span>%H:%M } ",
@@ -77,6 +76,12 @@
     "format-icons": ["󰃞", "󰃟", "󰃠"],
     "on-scroll-up": "bash $HOME/sway-dotfiles/waybar/modules/brightness.sh up",
     "on-scroll-down": "bash $HOME/sway-dotfiles/waybar/modules/brightness.sh down"
+  },
+
+  "custom/hyprpicker": {
+    "format": " {: <span color=\"#27d797\"> </span>%H:%M } ",
+    },
+    "on-click": "hyprpicker"
   },
 
   "idle_inhibitor": {
