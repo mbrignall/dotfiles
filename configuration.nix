@@ -26,6 +26,8 @@
   networking = {
     hostName = "mbrignall";
     networkmanager.enable = true;
+    nameservers = [ "8.8.8.8" "8.8.4.4" ];
+    wireless.iwd.enable = true;
   };
 
   # Set time zone.
@@ -70,6 +72,14 @@
     pulse.enable = true;
   };
 
+  services.jack = {
+    jackd.enable = true;
+    # support ALSA only programs via ALSA JACK PCM plugin
+    alsa.enable = false;
+    # support ALSA only programs via loopback device (supports programs like Steam)
+    loopback = { enable = true; };
+  };
+
   # Define user account.
   users.users.mbrignall = {
     isNormalUser = true;
@@ -81,6 +91,7 @@
       "wireless"
       "docker"
       "audio"
+      "jackaudio"
       "libvirtd"
       "input"
       "disk"
@@ -105,8 +116,10 @@
     docker-compose
     emptty
     eww-wayland
+    firefox
     exfat
     fuzzel
+    fwupd
     gcc
     git
     gimp
@@ -119,10 +132,13 @@
     gsettings-desktop-schemas
     gnumake
     gtk3
+    gtk-layer-shell
     htop
     ispell
     jdk17
+    jq
     karlender
+    labwc
     libnotify
     libtool
     mako
@@ -131,6 +147,7 @@
     imagemagick
     networkmanager-fortisslvpn
     openjdk
+    pcmanfm
     pandoc
     pavucontrol
     pipenv
@@ -140,14 +157,21 @@
     qemu
     ripgrep
     rnix-lsp
+    supercollider
+    supercollider_scel
+    emacsPackages.sclang-extensions
+    emacsPackages.sclang-snippets
+    sfwbar
     slack
     slurp
+    swaybg
     swayidle
     swaylock
     swww
     syncthing
     tailscale
     terraform
+    tigervnc
     udisks
     unzip
     vulkan-loader
@@ -158,6 +182,7 @@
     wl-clipboard
     wdisplays
     wget
+    wgnord
     xdg-utils
     xfce.thunar
     xfce.thunar-volman
@@ -179,6 +204,8 @@
       configDir = "/home/mbrignall/.config/syncthing";
     };
   };
+
+  security.polkit.enable = true;
 
   # Virtualisation
   virtualisation = {
@@ -208,6 +235,18 @@
     zsh.enable = true;
     # Enable Waybar
     waybar.enable = true;
+    # Enable Thunar
+    thunar.enable = true;
+  };
+
+  services = {
+    printing.enable = true;
+    avahi.enable = true;
+    avahi.nssmdns = true;
+    # for a WiFi printer
+    avahi.openFirewall = true;
+    fwupd.enable = true;
+    gvfs.enable = true;
   };
 
   # updates

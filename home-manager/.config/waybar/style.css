@@ -29,8 +29,12 @@ window#waybar {
     padding: 0px 4px;
 }
 
-#backlight, #battery, #bluetooth, #clock, #idle_inhibitor, #network, #pulseaudio, #hyprpicker {
+#backlight, #battery, #bluetooth, #clock, #idle_inhibitor, #network, #pulseaudio {
     border-top: 2px solid #b877db;
+}
+
+#custom-hyprpicker {
+	border-top: 2px solid #b877db;
 }
 
 #window {
@@ -47,12 +51,10 @@ window#waybar {
 }
 
 #workspaces {
-    text-shadow: 2px 1px 2px #a0a0a0;
 }
 
 #workspaces button {
-    color: #50C878;
-    text-shadow: 2px 1px 2px #1e1e3f;
+    color: black;
     border-top: 2px solid #b877db;
 }
 

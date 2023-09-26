@@ -1,5 +1,6 @@
 { config, pkgs, nixpkgs, ... }:
 let p10kTheme = ./.config/.p10k.zsh;
+
 in {
 
   imports = [ ];
@@ -14,13 +15,6 @@ in {
     username = "mbrignall";
     homeDirectory = "/home/mbrignall";
     stateVersion = "23.05";
-    pointerCursor = {
-      gtk.enable = true;
-      x11.enable = true;
-      name = "Adwaita";
-      package = pkgs.gnome.adwaita-icon-theme;
-      size = 18;
-    };
 
     file = {
       ".config/alacritty/alacritty.yml".source =
@@ -50,6 +44,7 @@ in {
       hyprpicker
       inkscape-with-extensions
       jq
+      ncspot
       nix-direnv
       nixfmt
       nodejs
@@ -58,6 +53,9 @@ in {
       nodePackages.pyright
       nodePackages.stylelint
       nodePackages.vscode-langservers-extracted
+      p7zip
+      remmina
+      rpi-imager
       shellcheck
       shfmt
       slurp
@@ -78,7 +76,14 @@ in {
       terminus-nerdfont
       victor-mono
       (nerdfonts.override {
-        fonts = [ "FiraCode" "FiraMono" "Hack" "DroidSansMono" "Meslo" ];
+        fonts = [
+          "FiraCode"
+          "FiraMono"
+          "Hack"
+          "DroidSansMono"
+          "Meslo"
+          "DaddyTimeMono"
+        ];
       })
     ];
   };
@@ -99,8 +104,8 @@ in {
     zsh = {
       enable = true;
       initExtra = ''
-        [[ ! -f ${p10kTheme} ]] || source ${p10kTheme}
-      '';
+          [[ ! -f ${p10kTheme} ]] || source ${p10kTheme}
+        # '';
       enableAutosuggestions = true;
       shellAliases = {
         g = "git";
@@ -116,6 +121,7 @@ in {
       }];
     };
   };
+
   services.emacs = {
     enable = true;
     defaultEditor = true;
@@ -136,19 +142,18 @@ in {
     enable = true;
 
     theme = {
-      name = "Arc-Dark";
-      package = pkgs.arc-theme;
+      name = "rose-pine-dawn";
+      package = pkgs.rose-pine-gtk-theme;
     };
 
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "rose-pine-dawn";
+      package = pkgs.rose-pine-icon-theme;
     };
 
     cursorTheme = {
-      name = "Adwaita-Dark";
-      package = pkgs.gnome.adwaita-icon-theme;
-      size = 18;
+      name = "Quintom";
+      package = pkgs.quintom-cursor-theme;
     };
 
     gtk3.extraCss = ''
