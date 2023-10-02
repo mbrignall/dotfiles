@@ -11,28 +11,13 @@
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
     in rec {
-      # # Your custom packages
-      # # Acessible through 'nix build', 'nix shell', etc
-      # packages = forAllSystems (system:
-      #   let pkgs = nixpkgs.legacyPackages.${system};
-      #   in import ./pkgs { inherit pkgs; }
-      # );
-      # # Devshell for bootstrapping
-      # # Acessible through 'nix develop' or 'nix-shell' (legacy)
-      # devShells = forAllSystems (system:
-      #   let pkgs = nixpkgs.legacyPackages.${system};
-      #   in import ./shell.nix { inherit pkgs; }
-      # );
+
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
-        # FIXME replace with your hostname
         mbrignall = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [
-            # > Our main nixos configuration file <
-            ./configuration.nix
-          ];
+          modules = [ ./configuration.nix ];
         };
       };
 

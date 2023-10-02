@@ -8,25 +8,20 @@ in {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = (_: true);
 
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-
   home = {
     username = "mbrignall";
     homeDirectory = "/home/mbrignall";
     stateVersion = "23.05";
+    sessionVariables.GTK_THEME = "rose-pine-dawn";
 
     file = {
+
       ".config/alacritty/alacritty.yml".source =
         .config/alacritty/alacritty.yml;
       ".config/fuzzel/fuzzel.ini".source = .config/fuzzel/fuzzel.ini;
-      ".config/home-manager/home.nix".source = ../home-manager/home.nix;
       ".config/mako/config".source = .config/mako/config;
-      ".config/hypr/hyprland.conf".source = .config/hypr/hyprland.conf;
-      # ".config/sway/config".source = .config/sway/config;
       ".config/swaylock/config".source = .config/swaylock/config;
-      ".config/waybar/config".source = .config/waybar/config;
-      ".config/waybar/style.css".source = .config/waybar/style.css;
+      ".config/yambar/config.yml".source = .config/yambar/config.yml;
     };
 
     packages = with pkgs; [
@@ -62,8 +57,10 @@ in {
       swappy
       tree-sitter
       vscode-extensions.github.copilot
+      yambar
       zsh
       zsh-powerlevel10k
+      postgresql
 
       #fonts
       fira-mono
@@ -76,14 +73,8 @@ in {
       terminus-nerdfont
       victor-mono
       (nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "FiraMono"
-          "Hack"
-          "DroidSansMono"
-          "Meslo"
-          "DaddyTimeMono"
-        ];
+        fonts =
+          [ "FiraCode" "FiraMono" "Hack" "DroidSansMono" "Meslo" "RobotoMono" ];
       })
     ];
   };
@@ -110,8 +101,11 @@ in {
       shellAliases = {
         g = "git";
         gs = "git status";
-        update =
-          "sudo nixos-rebuild switch --flake .#mbrignall && home-manager switch --flake .#mbrignall@mbrignall";
+        build =
+          "sudo nixos-rebuild switch --flake ~/dotfiles/#mbrignall && home-manager switch --flake ~/dotfiles/#mbrignall@mbrignall";
+        update = "sudo nix flake update && build";
+        clean =
+          "sudo nix-env --delete-generations old -p /nix/var/nix/profiles/system && sudo nix-collect-garbage -d && build";
       };
 
       plugins = with pkgs; [{
@@ -127,6 +121,25 @@ in {
     defaultEditor = true;
   };
 
+  gtk = {
+    enable = true;
+
+    iconTheme = {
+      name = "rose-pine-dawn";
+      package = pkgs.rose-pine-icon-theme;
+    };
+
+    theme = {
+      name = "rose-pine-dawn";
+      package = pkgs.rose-pine-gtk-theme;
+    };
+
+    cursorTheme = {
+      name = "Quintom";
+      package = pkgs.quintom-cursor-theme;
+    };
+  };
+
   nixpkgs = {
     overlays = [
       (self: super: {
@@ -137,33 +150,4 @@ in {
     ];
   };
 
-  # GTK theme and dark mode preferences
-  gtk = {
-    enable = true;
-
-    theme = {
-      name = "rose-pine-dawn";
-      package = pkgs.rose-pine-gtk-theme;
-    };
-
-    iconTheme = {
-      name = "rose-pine-dawn";
-      package = pkgs.rose-pine-icon-theme;
-    };
-
-    cursorTheme = {
-      name = "Quintom";
-      package = pkgs.quintom-cursor-theme;
-    };
-
-    gtk3.extraCss = ''
-      decoration, decoration:backdrop {box-shadow: none;}
-
-                           .titlebar, .titlebar .background,
-
-                           decoration, window, window.background
-
-                           {border-radius: 0; font-family: FiraMono Nerd Font;}'';
-
-  };
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -26,7 +26,6 @@
   networking = {
     hostName = "mbrignall";
     networkmanager.enable = true;
-    nameservers = [ "8.8.8.8" "8.8.4.4" ];
     wireless.iwd.enable = true;
   };
 
@@ -128,8 +127,6 @@
     graphviz
     grim
     sway-contrib.grimshot
-    gvfs
-    gsettings-desktop-schemas
     gnumake
     gtk3
     gtk-layer-shell
@@ -147,7 +144,6 @@
     imagemagick
     networkmanager-fortisslvpn
     openjdk
-    pcmanfm
     pandoc
     pavucontrol
     pipenv
@@ -157,10 +153,6 @@
     qemu
     ripgrep
     rnix-lsp
-    supercollider
-    supercollider_scel
-    emacsPackages.sclang-extensions
-    emacsPackages.sclang-snippets
     sfwbar
     slack
     slurp
@@ -184,26 +176,8 @@
     wget
     wgnord
     xdg-utils
-    xfce.thunar
-    xfce.thunar-volman
     yarn
   ];
-
-  ## Services
-  services = {
-    tailscale.enable = true;
-    # Disable the X11 window system.
-    xserver.enable = false;
-    # Enable Flatpak
-    flatpak.enable = true;
-
-    syncthing = {
-      enable = true;
-      user = "mbrignall";
-      dataDir = "/home/mbrignall/org/";
-      configDir = "/home/mbrignall/.config/syncthing";
-    };
-  };
 
   security.polkit.enable = true;
 
@@ -239,14 +213,41 @@
     thunar.enable = true;
   };
 
+  programs.thunar.plugins = with pkgs.xfce; [
+    thunar-archive-plugin
+    thunar-volman
+  ];
+
   services = {
+
+    # Enable Tailscale.
+    tailscale.enable = true;
+
+    # Disable the X11 window system.
+    xserver.enable = false;
+
+    # Enable Flatpak
+    flatpak.enable = true;
+
+    # Enable Syncthing
+    syncthing = {
+      enable = true;
+      user = "mbrignall";
+      dataDir = "/home/mbrignall/org/";
+      configDir = "/home/mbrignall/.config/syncthing";
+    };
+
+    # Enable the CUPS printing system.
     printing.enable = true;
     avahi.enable = true;
     avahi.nssmdns = true;
+
     # for a WiFi printer
     avahi.openFirewall = true;
+
     fwupd.enable = true;
     gvfs.enable = true;
+    tumbler.enable = true;
   };
 
   # updates
@@ -254,4 +255,5 @@
     autoUpgrade.enable = true;
     stateVersion = "23.05";
   };
+
 }
