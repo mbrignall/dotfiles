@@ -20,13 +20,25 @@ bar:
   border:
     width: 1
     color: 947E7BFF
-    margin: 5
+    margin: 4
     top-margin: 0
 
   right:
 
     - network:
-        name: wlp0s20f3
+        name: enp1s0f0
+        content:
+          map:
+            conditions:
+              ~carrier: {empty: {}}
+              carrier:
+                map:
+                  default: {string: {text: , font: *awesome, foreground: ffffff66}}
+                  conditions:
+                    state == up && ipv4 != "": {string: {text: , font: *awesome}}
+                    
+    - network:
+        name: wlan0
         poll-interval: 1000
         content:
           map:

@@ -15,28 +15,36 @@
 
   boot.kernelModules = [ "amdgpu" ];
 
-  hardware.opengl = {
-    driSupport32Bit = true;
-    extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+  hardware = {
+    opengl = {
+      driSupport32Bit = true;
+      extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+    };
+    enableAllFirmware = true;
+    pulseaudio.enable = false;
+    bluetooth.enable = true;
   };
-
-  hardware.enableAllFirmware = true;
 
   # Networking
   networking = {
     hostName = "mbrignall";
     networkmanager.enable = true;
     wireless.iwd.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts =
+        [ 22 80 443 5432 5672 ]; # SSH, HTTP, HTTPS, and PostgreSQL
+    };
   };
-
-  # Set time zone.
-  time.timeZone = "Europe/London";
 
   systemd.services.NetworkManager-wait-online = {
     serviceConfig = {
       ExecStart = [ "" "${pkgs.networkmanager}/bin/nm-online -q" ];
     };
   };
+
+  # Set time zone.
+  time.timeZone = "Europe/London";
 
   # Select internationalisation properties.
   i18n = {
@@ -57,26 +65,6 @@
   console = {
     font = "ter-powerline-v28b";
     packages = [ pkgs.terminus_font pkgs.powerline-fonts ];
-  };
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  hardware.bluetooth = { enable = true; };
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  services.jack = {
-    jackd.enable = true;
-    # support ALSA only programs via ALSA JACK PCM plugin
-    alsa.enable = false;
-    # support ALSA only programs via loopback device (supports programs like Steam)
-    loopback = { enable = true; };
   };
 
   # Define user account.
@@ -132,6 +120,7 @@
     gtk-layer-shell
     htop
     ispell
+    inetutils
     jdk17
     jq
     karlender
@@ -179,12 +168,9 @@
     yarn
   ];
 
-  security.polkit.enable = true;
-
   # Virtualisation
   virtualisation = {
     libvirtd.enable = true;
-    # Docker virtualisation
     docker.enable = true;
   };
 
@@ -203,31 +189,60 @@
     dconf.enable = true;
     # Enable Sway.
     sway.enable = true;
-    # Enable Hyprland
-    hyprland.enable = true;
     # Enable ZSH
     zsh.enable = true;
-    # Enable Waybar
-    waybar.enable = true;
     # Enable Thunar
-    thunar.enable = true;
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+    };
   };
 
-  programs.thunar.plugins = with pkgs.xfce; [
-    thunar-archive-plugin
-    thunar-volman
-  ];
+  # Enable sound with pipewire.
+  sound.enable = true;
+
+  security = {
+    polkit.enable = true;
+    rtkit.enable = true;
+  };
 
   services = {
+
+    postgresql = {
+      package = pkgs.postgresql_15;
+      port = 5432;
+      enable = true;
+      enableTCPIP = true;
+      ensureDatabases = [ "foyer-test" ];
+      authentication = ''
+        # TYPE  DATABASE        USER            ADDRESS                 METHOD
+        local   all             all                                     trust
+        host    all             all             0.0.0.0/0               trust
+      '';
+    };
+
+    pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      pulse.enable = true;
+    };
+
+    jack = {
+      jackd.enable = true;
+      # support ALSA only programs via ALSA JACK PCM plugin
+      alsa.enable = false;
+      # support ALSA only programs via loopback device
+      loopback = { enable = true; };
+    };
 
     # Enable Tailscale.
     tailscale.enable = true;
 
     # Disable the X11 window system.
     xserver.enable = false;
-
-    # Enable Flatpak
-    flatpak.enable = true;
 
     # Enable Syncthing
     syncthing = {
@@ -241,16 +256,18 @@
     printing.enable = true;
     avahi.enable = true;
     avahi.nssmdns = true;
-
     # for a WiFi printer
     avahi.openFirewall = true;
 
+    # Firmware updates
     fwupd.enable = true;
+
     gvfs.enable = true;
     tumbler.enable = true;
+
   };
 
-  # updates
+  # General Updates
   system = {
     autoUpgrade.enable = true;
     stateVersion = "23.05";

@@ -5,8 +5,12 @@ in {
 
   imports = [ ];
 
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowUnfreePredicate = (_: true);
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
 
   home = {
     username = "mbrignall";
@@ -58,6 +62,7 @@ in {
       tree-sitter
       vscode-extensions.github.copilot
       yambar
+      yamlfmt
       zsh
       zsh-powerlevel10k
       postgresql
