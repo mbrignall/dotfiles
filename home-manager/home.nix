@@ -19,10 +19,14 @@ in {
     sessionVariables.GTK_THEME = "rose-pine-dawn";
 
     file = {
-
       ".config/alacritty/alacritty.yml".source =
         .config/alacritty/alacritty.yml;
       ".config/fuzzel/fuzzel.ini".source = .config/fuzzel/fuzzel.ini;
+      ".config/labwc/autostart".source = .config/labwc/autostart;
+      ".config/labwc/environment".source = .config/labwc/environment;
+      ".config/labwc/menu.xml".source = .config/labwc/menu.xml;
+      ".config/labwc/rc.xml".source = .config/labwc/rc.xml;
+      ".config/labwc/scripts/grim".source = .config/labwc/scripts/grim;
       ".config/mako/config".source = .config/mako/config;
       ".config/swaylock/config".source = .config/swaylock/config;
       ".config/yambar/config.yml".source = .config/yambar/config.yml;
@@ -143,16 +147,6 @@ in {
       name = "Quintom";
       package = pkgs.quintom-cursor-theme;
     };
-  };
-
-  nixpkgs = {
-    overlays = [
-      (self: super: {
-        waybar = super.waybar.overrideAttrs (oldAttrs: {
-          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-        });
-      })
-    ];
   };
 
 }
