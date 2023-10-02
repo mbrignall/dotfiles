@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+
+<labwc_config>
+
+  <core>
+    <gap>4</gap>
+    <adaptiveSync>no</adaptiveSync>
+  </core>
+
+  <theme>
+    <name>Umbra</name>
+    <cornerRadius>0</cornerRadius>
+    <font name="Hack Nerd Font" size="12" weight="bold" />
+    <animateIconify>yes</animateIconify>
+  </theme>
+
+  <focus>
+    <focusNew>yes</focusNew>
+    <followMouse>yes</followMouse>
+    <focusLast>yes</focusLast>
+    <underMouse>no</underMouse>
+    <focusDelay>200</focusDelay>
+    <raiseOnFocus>no</raiseOnFocus>
+  </focus>
+
+  <desktops>
+    <number>4</number>
+    <firstdesk>0</firstdesk>
+    <names>
+      <name>I</name>
+      <name>II</name>
+      <name>III</name>
+      <name>IV</name>
+    </names>
+    <popupTime>875</popupTime>
+  </desktops>
+
+  <margins>
+    <top>0</top>
+    <bottom>5</bottom>
+    <left>10</left>
+    <right>10</right>
+  </margins>
+
+  <resize>
+    <drawContents>yes</drawContents>
+    <popupShow>Always</popupShow>
+    <popupPosition>Center</popupPosition>
+    <popupFixedPosition>
+      <x>10</x>
+      <y>10</y>
+    </popupFixedPosition>
+  </resize>
+
+  <placement>
+    <policy>UnderMouse</policy>
+    <center>yes</center>
+    <monitor>Mouse</monitor>
+    <primaryMonitor>Mouse</primaryMonitor>
+  </placement>
+
+  <regions>
+    <region name="left-half" x="0%" y="0%" width="50%" height="100%" />
+    <region name="right-half" x="50%" y="0%" width="50%" height="100%" />
+    <region name="top-left" x="0%" y="0%" width="50%" height="50%" />
+    <region name="top-right" x="50%" y="0%" width="50%" height="50%" />
+    <region name="bottom-left" x="0%" y="50%" width="50%" height="50%" />
+    <region name="bottom-right" x="50%" y="50%" width="50%" height="50%" />
+  </regions>
+
+  <keyboard>
+    <!-- Maximise -->
+    <keybind key="W-m">
+      <action name="ToggleMaximize"/>
+    </keybind>
+
+    <keybind key="A-Tab">
+      <action name="NextWindow">
+      </action>
+    </keybind>
+
+    <keybind key="W-1">
+      <action name="GoToDesktop">
+	<to>1</to>
+      </action>
+    </keybind>
+    <keybind key="W-2">
+      <action name="GoToDesktop">
+	<to>2</to>
+      </action>
+    </keybind>
+    <keybind key="W-3">
+      <action name="GoToDesktop">
+	<to>3</to>
+      </action>
+    </keybind>
+    <keybind key="W-4">
+      <action name="GoToDesktop">
+	<to>4</to>
+      </action>
+    </keybind>
+
+
+    <!-- Window Tiling: Snap feature -->
+    <keybind key="W-Left">
+      <action name="SnapToRegion">
+	<region>left-half</region>
+      </action>
+    </keybind>
+    <keybind key="W-Right">
+      <action name="SnapToRegion">
+	<region>right-half</region>
+      </action>
+    </keybind>
+
+    <keybind key="W-S-Up">
+      <action name="SnapToRegion">
+	<region>top-left</region>
+      </action>
+    </keybind>
+    <keybind key="W-S-Right">
+      <action name="SnapToRegion">
+	<region>top-right</region>
+      </action>
+    </keybind>
+    <keybind key="W-S-Left">
+      <action name="SnapToRegion">
+	<region>bottom-left</region>
+      </action>
+    </keybind>
+    <keybind key="W-S-Down">
+      <action name="SnapToRegion">
+	<region>bottom-right</region>
+      </action>
+    </keybind>
+      
+    <!-- Launch  -->
+    <keybind key="W-Return">
+      <action name="Execute" command="alacritty" />
+    </keybind>
+
+    <!-- Lockscreen -->
+    <keybind key="C-A-l">
+      <action name="Execute">
+        <command>swaylock</command>
+      </action>
+    </keybind>
+
+    <!-- Activate Move/Resize -->
+    <keybind key="A-r">
+      <action name="Resize"/>
+    </keybind>
+    <keybind key="A-m">
+      <action name="Move"/>
+    </keybind>
+    
+    <!-- Launch Openbox Menu -->
+    <keybind key="W-space">
+      <action name="ShowMenu">
+        <menu>root-menu</menu>
+      </action>
+    </keybind>
+    <keybind key="C-A-space">
+      <action name="ShowMenu">
+        <menu>app-menu</menu>
+      </action>
+    </keybind>
+    <keybind key="A-space">
+      <action name="Execute">
+        <command>fuzzel</command>
+      </action>
+    </keybind>
+
+    <!-- Grim shots -->
+    <keybind key="W-p">
+      <action name="Execute">
+        <command>bash ~/.config/labwc/scripts/grim</command>
+      </action>
+    </keybind>
+
+    <!-- Thunar -->
+    <keybind key="W-f">
+      <action name="Execute">
+        <command>thunar</command>
+      </action>
+    </keybind>
+
+    <!-- ncspot -->
+    <keybind key="W-s">
+      <action name="Execute">
+        <command>alacritty -e ncspot</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-c">
+      <action name="Execute">
+        <command>pkill -f 'thunar'</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-q">
+      <action name="Execute">
+        <command>Close</command>
+      </action>
+    </keybind>
+  </keyboard>
+
+  <mouse><default />
+  </mouse>
+
+  <!-- Window Rules -->
+  <windowRules>
+    <windowRule identifier="Emacs">
+      <action name="ToggleMaximize"/>
+    </windowRule>
+  </windowRules>
+
+
+</labwc_config>

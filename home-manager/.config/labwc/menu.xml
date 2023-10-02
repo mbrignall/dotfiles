@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu>
+
+<menu id="client-menu">
+  <item label="Minimize">
+    <action name="Iconify" />
+  </item>
+  <item label="Maximize">
+    <action name="ToggleMaximize" />
+  </item>
+  <item label="Fullscreen">
+    <action name="ToggleFullscreen" />
+  </item>
+  <item label="Decorations">
+    <action name="ToggleDecorations" />
+  </item>
+  <item label="AlwaysOnTop">
+    <action name="ToggleAlwaysOnTop" />
+  </item>
+  <item label="Close">
+    <action name="Close" />
+  </item>
+</menu>
+
+<menu id="root-menu" label="Navigator">
+  <menu id="utilities-menu" label="Utilities">
+    <item label="Alacritty">
+      <action name="Execute" command="alacritty" />
+    </item>
+    <item label="Chrome">
+      <action name="Execute" command="google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland" />
+    </item>
+    <item label="Emacs">
+      <action name="Execute" command="emacsclient -c -a emacs" />
+    </item>
+    <item label="Thunar">
+      <action name="Execute" command="thunar" />
+    </item>
+    <item label="Slack">
+      <action name="Execute" command="slack" />
+    </item>
+  </menu>
+  <menu id="control-menu" label="Control">
+    <item label="Reconfigure">
+      <action name="Reconfigure" />
+    </item>
+    <item label="Exit">
+      <action name="Exit" />
+    </item>
+    <item label="Poweroff">
+    <action name="Execute" command="systemctl -i poweroff" />
+    </item>
+  </menu>
+</menu>
+
+<menu id="some-custom-menu">
+  <item label="Reconfigure">
+    <action name="Reconfigure" />
+  </item>
+  <item label="Exit">
+    <action name="Exit" />
+  </item>
+</menu>
+
+</openbox_menu>
