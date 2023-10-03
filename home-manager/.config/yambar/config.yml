@@ -38,7 +38,7 @@ bar:
                     state == up && ipv4 != "": {string: {text: , font: *awesome}}
                     
     - network:
-        name: wlan0
+        name: wlp2s0
         poll-interval: 1000
         content:
           map:

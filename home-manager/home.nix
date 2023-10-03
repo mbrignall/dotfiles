@@ -28,6 +28,7 @@ in {
       ".config/labwc/rc.xml".source = .config/labwc/rc.xml;
       ".config/labwc/scripts/grim".source = .config/labwc/scripts/grim;
       ".config/mako/config".source = .config/mako/config;
+      ".config/swappy/config".source = .config/swappy/config;
       ".config/swaylock/config".source = .config/swaylock/config;
       ".config/yambar/config.yml".source = .config/yambar/config.yml;
     };

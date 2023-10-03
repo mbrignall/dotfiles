@@ -29,7 +29,6 @@
   networking = {
     hostName = "mbrignall";
     networkmanager.enable = true;
-    wireless.iwd.enable = true;
     firewall = {
       enable = true;
       allowedTCPPorts =
@@ -37,11 +36,11 @@
     };
   };
 
-  systemd.services.NetworkManager-wait-online = {
-    serviceConfig = {
-      ExecStart = [ "" "${pkgs.networkmanager}/bin/nm-online -q" ];
-    };
-  };
+  # systemd.services.NetworkManager-wait-online = {
+  #   serviceConfig = {
+  #     ExecStart = [ "" "${pkgs.networkmanager}/bin/nm-online -q" ];
+  #   };
+  # };
 
   # Set time zone.
   time.timeZone = "Europe/London";
@@ -131,7 +130,6 @@
     maim
     multimarkdown
     imagemagick
-    networkmanager-fortisslvpn
     openjdk
     pandoc
     pavucontrol
