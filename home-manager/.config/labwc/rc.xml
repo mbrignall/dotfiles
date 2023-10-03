@@ -7,22 +7,6 @@
     <adaptiveSync>no</adaptiveSync>
   </core>
 
-  <theme>
-    <name>Umbra</name>
-    <cornerRadius>0</cornerRadius>
-    <font name="Hack Nerd Font" size="12" weight="bold" />
-    <animateIconify>yes</animateIconify>
-  </theme>
-
-  <focus>
-    <focusNew>yes</focusNew>
-    <followMouse>yes</followMouse>
-    <focusLast>yes</focusLast>
-    <underMouse>no</underMouse>
-    <focusDelay>200</focusDelay>
-    <raiseOnFocus>no</raiseOnFocus>
-  </focus>
-
   <desktops>
     <number>4</number>
     <firstdesk>0</firstdesk>
@@ -35,22 +19,21 @@
     <popupTime>875</popupTime>
   </desktops>
 
+  <focus>
+    <focusNew>yes</focusNew>
+    <followMouse>yes</followMouse>
+    <focusLast>yes</focusLast>
+    <underMouse>no</underMouse>
+    <focusDelay>200</focusDelay>
+    <raiseOnFocus>no</raiseOnFocus>
+  </focus>
+
   <margins>
     <top>0</top>
     <bottom>5</bottom>
     <left>10</left>
     <right>10</right>
   </margins>
-
-  <resize>
-    <drawContents>yes</drawContents>
-    <popupShow>Always</popupShow>
-    <popupPosition>Center</popupPosition>
-    <popupFixedPosition>
-      <x>10</x>
-      <y>10</y>
-    </popupFixedPosition>
-  </resize>
 
   <placement>
     <policy>UnderMouse</policy>
@@ -68,9 +51,31 @@
     <region name="bottom-right" x="50%" y="50%" width="50%" height="50%" />
   </regions>
 
+  <resistance>
+    <strength>10</strength>
+    <screenEdge_strength>20</screenEdge_strength>
+  </resistance>
+      
+  <resize>
+    <drawContents>yes</drawContents>
+    <popupShow>Always</popupShow>
+    <popupPosition>Center</popupPosition>
+    <popupFixedPosition>
+      <x>10</x>
+      <y>10</y>
+    </popupFixedPosition>
+  </resize>
+
+  <theme>
+    <name>Umbra</name>
+    <cornerRadius>0</cornerRadius>
+    <font name="Hack Nerd Font" size="12" weight="bold" />
+    <animateIconify>yes</animateIconify>
+  </theme>
+
   <keyboard>
     <!-- Maximise -->
-    <keybind key="W-m">
+    <keybind key="W-a">
       <action name="ToggleMaximize"/>
     </keybind>
 
@@ -100,6 +105,18 @@
       </action>
     </keybind>
 
+    <keybind key="W-S-1">
+      <action name="SendToDesktop" to="1" follow="yes"/>
+    </keybind>
+        <keybind key="W-S-2">
+      <action name="SendToDesktop" to="2" follow="yes"/>
+    </keybind>
+    <keybind key="W-S-3">
+      <action name="SendToDesktop" to="3" follow="yes"/>
+    </keybind>
+    <keybind key="W-S-4">
+      <action name="SendToDesktop" to="4" follow="yes"/>
+    </keybind>
 
     <!-- Window Tiling: Snap feature -->
     <keybind key="W-Left">
@@ -192,28 +209,21 @@
       </action>
     </keybind>
 
-    <keybind key="W-c">
+    <!-- btop -->
+    <keybind key="C-A-b">
       <action name="Execute">
-        <command>pkill -f 'thunar'</command>
+        <command>alacritty -e btop</command>
       </action>
     </keybind>
 
+    <!-- Close Window -->
     <keybind key="W-q">
-      <action name="Execute">
-        <command>Close</command>
-      </action>
+      <action name="Close"/>
     </keybind>
+    
   </keyboard>
 
   <mouse><default />
   </mouse>
-
-  <!-- Window Rules -->
-  <windowRules>
-    <windowRule identifier="Emacs">
-      <action name="ToggleMaximize"/>
-    </windowRule>
-  </windowRules>
-
 
 </labwc_config>

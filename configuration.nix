@@ -95,6 +95,7 @@
     bfcal
     blueberry
     brightnessctl
+    btop
     clang
     cmake
     coreutils
@@ -118,7 +119,6 @@
     gnumake
     gtk3
     gtk-layer-shell
-    htop
     ispell
     inetutils
     jdk17
@@ -214,6 +214,7 @@
       enable = true;
       enableTCPIP = true;
       ensureDatabases = [ "foyer-test" ];
+      ensureUsers = [{ name = "foyer-app"; }];
       authentication = ''
         # TYPE  DATABASE        USER            ADDRESS                 METHOD
         local   all             all                                     trust

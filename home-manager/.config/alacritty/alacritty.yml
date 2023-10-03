@@ -1,7 +1,16 @@
 # ~/.config/alacritty/alacritty.yml
 
-#window:
-#  opacity: 0.8
+window:
+  opacity: 1
+
+  padding:
+    x: 6
+    y: 6
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 5000
 
 colors:
   primary:
@@ -19,6 +28,7 @@ colors:
   selection:
     text: "0x575279"
     background: "0xdfdad9"
+
   normal:
     black: "0xf2e9e1"
     red: "0xb4637a"
@@ -28,6 +38,7 @@ colors:
     magenta: "0x907aa9"
     cyan: "0xd7827e"
     white: "0x575279"
+    
   bright:
     black: "0x9893a5"
     red: "0xb4637a"
@@ -37,6 +48,7 @@ colors:
     magenta: "0x907aa9"
     cyan: "0xd7827e"
     white: "0x575279"
+    
   hints:
     start:
       foreground: "#797593"

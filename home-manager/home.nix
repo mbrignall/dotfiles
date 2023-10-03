@@ -104,12 +104,27 @@ in {
     zsh = {
       enable = true;
       initExtra = ''
-          [[ ! -f ${p10kTheme} ]] || source ${p10kTheme}
-        # '';
+        [[ ! -f ${p10kTheme} ]] || source ${p10kTheme}  
+      '';
       enableAutosuggestions = true;
       shellAliases = {
         g = "git";
+        ga = "git add";
+        gc = "git commit";
+        gd = "git diff";
+        gp = "git push";
         gs = "git status";
+
+        # Productivity
+
+        l = "ls -alh";
+        ll = "ls -l";
+        ls = "ls -la --color=tty";
+
+        cat = "bat";
+        ccat = "bat --color=always";
+
+        # Nix Build
         build =
           "sudo nixos-rebuild switch --flake ~/dotfiles/#mbrignall && home-manager switch --flake ~/dotfiles/#mbrignall@mbrignall";
         update = "sudo nix flake update && build";
