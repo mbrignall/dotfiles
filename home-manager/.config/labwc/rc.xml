@@ -66,6 +66,11 @@
     </popupFixedPosition>
   </resize>
 
+  <snapping>
+    <range>20</range>
+  </snapping>
+
+
   <theme>
     <name>Umbra</name>
     <cornerRadius>0</cornerRadius>
@@ -220,6 +225,34 @@
     <keybind key="W-q">
       <action name="Close"/>
     </keybind>
+
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+        <command>brightnessctl s +10%</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+        <command>brightnessctl s 10%-</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>amixer set Master toggle</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+	<command>amixer set Master 5%-</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+	<command>amixer set Master 5%+</command>
+      </action>
+    </keybind>
+
     
   </keyboard>
 

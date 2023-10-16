@@ -36,11 +36,11 @@
     };
   };
 
-  # systemd.services.NetworkManager-wait-online = {
-  #   serviceConfig = {
-  #     ExecStart = [ "" "${pkgs.networkmanager}/bin/nm-online -q" ];
-  #   };
-  # };
+  systemd.services.NetworkManager-wait-online = {
+    serviceConfig = {
+      ExecStart = [ "" "${pkgs.networkmanager}/bin/nm-online -q" ];
+    };
+  };
 
   # Set time zone.
   time.timeZone = "Europe/London";
@@ -251,8 +251,21 @@
       configDir = "/home/mbrignall/.config/syncthing";
     };
 
+    spotifyd = { enable = true; };
+
     # Enable the CUPS printing system.
     printing.enable = true;
+    printing.browsing = true;
+    printing.drivers = [ pkgs.gutenprint ];
+    printing.browsedConf = ''
+      BrowseDNSSDSubTypes _cups,_print
+      BrowseLocalProtocols all
+      BrowseRemoteProtocols all
+      CreateIPPPrinterQueues All
+
+      BrowseProtocols all
+    '';
+
     avahi.enable = true;
     avahi.nssmdns = true;
     # for a WiFi printer

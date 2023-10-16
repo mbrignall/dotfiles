@@ -124,3 +124,4 @@ bar:
               activated:
                 - string: {text: "{app-id}", foreground: ffa0a0ff}
                 - string: {text: ": {title}"}
+

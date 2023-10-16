@@ -63,6 +63,7 @@ in {
       shellcheck
       shfmt
       slurp
+      spotify-tui
       swappy
       tree-sitter
       vscode-extensions.github.copilot
