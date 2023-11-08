@@ -1,4 +1,4 @@
-{ nixpkgs, lib, pkgs, ... }:
+{ lib, pkgs, nixpkgs, ... }:
 let p10kTheme = ./.config/.p10k.zsh;
 in {
 
@@ -22,7 +22,12 @@ in {
       ".config/mako/config".source = .config/mako/config;
       ".config/swappy/config".source = .config/swappy/config;
       ".config/swaylock/config".source = .config/swaylock/config;
-      ".config/waybar/config".source = .config/waybar/config;
+      ".config/waybar/config.jsonc".source = .config/waybar/config.jsonc;
+      ".config/waybar/rose-pine-dawn.css".source =
+        .config/waybar/rose-pine-dawn.css;
+      ".config/waybar/style.css".source = .config/waybar/style.css;
+      ".config/waybar/scripts/mediaplayer.py".source =
+        .config/waybar/scripts/mediaplayer.py;
     };
 
     packages = with pkgs; [
