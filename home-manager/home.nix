@@ -1,9 +1,6 @@
-{ config, pkgs, nixpkgs, ... }:
+{ nixpkgs, lib, pkgs, ... }:
 let p10kTheme = ./.config/.p10k.zsh;
-
 in {
-
-  imports = [ ];
 
   nixpkgs = {
     config = {
@@ -22,15 +19,10 @@ in {
       ".config/alacritty/alacritty.yml".source =
         .config/alacritty/alacritty.yml;
       ".config/fuzzel/fuzzel.ini".source = .config/fuzzel/fuzzel.ini;
-      ".config/labwc/autostart".source = .config/labwc/autostart;
-      ".config/labwc/environment".source = .config/labwc/environment;
-      ".config/labwc/menu.xml".source = .config/labwc/menu.xml;
-      ".config/labwc/rc.xml".source = .config/labwc/rc.xml;
-      ".config/labwc/scripts/grim".source = .config/labwc/scripts/grim;
       ".config/mako/config".source = .config/mako/config;
       ".config/swappy/config".source = .config/swappy/config;
       ".config/swaylock/config".source = .config/swaylock/config;
-      ".config/yambar/config.yml".source = .config/yambar/config.yml;
+      ".config/waybar/config".source = .config/waybar/config;
     };
 
     packages = with pkgs; [
@@ -38,17 +30,15 @@ in {
       #packages
       bat
       bc
+      black
       ditaa
       editorconfig-core-c
       nix-direnv
       fd
-      grim
       hugo
       html-tidy
-      hyprpicker
       inkscape-with-extensions
       jq
-      ncspot
       nix-direnv
       nixfmt
       nodejs
@@ -57,21 +47,30 @@ in {
       nodePackages.pyright
       nodePackages.stylelint
       nodePackages.vscode-langservers-extracted
+      nodePackages.vscode-html-languageserver-bin
+      nyxt
       p7zip
+      playerctl
+      qmk
       remmina
       rpi-imager
+      ruff
       shellcheck
       shfmt
-      slurp
-      spotify-tui
-      swappy
+
       tree-sitter
       vscode-extensions.github.copilot
-      yambar
       yamlfmt
       zsh
       zsh-powerlevel10k
       postgresql
+
+      grim
+      hyprpicker
+      slurp
+      swappy
+      waybar
+      wl-clipboard
 
       #fonts
       fira-mono
@@ -161,8 +160,9 @@ in {
     };
 
     cursorTheme = {
-      name = "Quintom";
-      package = pkgs.quintom-cursor-theme;
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
+      size = 16;
     };
   };
 

@@ -1,0 +1,1 @@
+/home/mbrignall/sway-dotfiles/waybar/modules/cpu_speed.sh

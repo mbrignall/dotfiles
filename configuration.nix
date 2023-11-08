@@ -13,7 +13,7 @@
     efi.efiSysMountPoint = "/boot/efi";
   };
 
-  boot.kernelModules = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
   hardware = {
     opengl = {
@@ -102,18 +102,17 @@
     docker
     docker-compose
     emptty
-    eww-wayland
     firefox
     exfat
     fuzzel
     fwupd
     gcc
+    google-cloud-sdk
     git
     gimp
     glib
     google-chrome
     graphviz
-    grim
     sway-contrib.grimshot
     gnumake
     gtk3
@@ -122,7 +121,6 @@
     inetutils
     jdk17
     jq
-    karlender
     labwc
     libnotify
     libtool
@@ -131,6 +129,7 @@
     multimarkdown
     imagemagick
     openjdk
+    pamixer
     pandoc
     pavucontrol
     pipenv
@@ -140,25 +139,23 @@
     qemu
     ripgrep
     rnix-lsp
-    sfwbar
     slack
     slurp
+    spotify
     swaybg
     swayidle
     swaylock
-    swww
     syncthing
     tailscale
     terraform
-    tigervnc
     udisks
+    upower
     unzip
     vulkan-loader
     vim
     virt-manager
     vlc
     wayland
-    wl-clipboard
     wdisplays
     wget
     wgnord
@@ -187,6 +184,9 @@
     dconf.enable = true;
     # Enable Sway.
     sway.enable = true;
+    waybar.enable = true;
+    # Enable Hyprland
+    hyprland.enable = true;
     # Enable ZSH
     zsh.enable = true;
     # Enable Thunar
@@ -206,13 +206,15 @@
 
   services = {
 
+    upower.enable = true;
+
     postgresql = {
       package = pkgs.postgresql_15;
       port = 5432;
       enable = true;
       enableTCPIP = true;
-      ensureDatabases = [ "foyer-test" ];
-      ensureUsers = [{ name = "foyer-app"; }];
+      ensureDatabases = [ "foyer-test" "cloudquery-db" ];
+      ensureUsers = [ { name = "foyer-app"; } { name = "cloudquery-user"; } ];
       authentication = ''
         # TYPE  DATABASE        USER            ADDRESS                 METHOD
         local   all             all                                     trust
@@ -250,8 +252,6 @@
       dataDir = "/home/mbrignall/org/";
       configDir = "/home/mbrignall/.config/syncthing";
     };
-
-    spotifyd = { enable = true; };
 
     # Enable the CUPS printing system.
     printing.enable = true;

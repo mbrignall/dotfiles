@@ -1,7 +1,8 @@
-font=Hack Nerd Font 15
+font=FiraMono Nerd Font 15
 width=400
 height=200
-border-size=2
+border-radius=10
+border-size=0
 max-history=3
 background-color=#faf4ed
 text-color=#6e6a86
